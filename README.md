@@ -17,17 +17,20 @@ Este repositório centraliza toda a documentação técnica e de processos da Be
   - Fluxo completo de desenvolvimento
   - Troubleshooting e boas práticas
 
-- **Code Review** 🚧 (Em breve)
-  - Responsabilidades de revisores e autores
-  - Checklist de revisão
-  - Boas práticas de feedback
-  - Ferramentas e automações
+- **[Code Review](./processes/code-review.md)** ✅
+  - Processo completo de code review
+  - Integração com QA e ambientes temporários
+  - Responsabilidades de autores, revisores e QA
+  - Boas práticas e anti-patterns
+  - Exemplos práticos completos
 
-- **Task Management** 🚧 (Em breve)
-  - Sistema de pontuação (Story Points)
-  - Processo de estimativa
-  - Ciclo de vida das tarefas
-  - Gestão de Sprints
+- **[Task Management](./processes/task-management.md)** ✅
+  - Sistema de Story Points (escala Fibonacci)
+  - Ciclo de vida completo das tarefas
+  - Papéis e responsabilidades (RACI)
+  - Gestão de Sprints (Light Scrum)
+  - Regras críticas e prioridades
+  - Exemplos práticos completos
 
 ### Arquitetura e Tecnologia
 
