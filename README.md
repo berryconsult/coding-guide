@@ -45,7 +45,7 @@ Processo completo de code review integrado com QA:
 
 **Arquivo:** [processes/pull-requests.md](./processes/pull-requests.md) ✅
 
-Guia completo de Pull Requests na Berry:
+Guia completo de Pull Requests na Berry (~7.000 palavras):
 - Anatomia de um PR (título, descrição WWW, template obrigatório)
 - Checklist pré-PR (self-review, testes, formatação)
 - Processo completo: Criação → Code Review → QA → Merge
@@ -99,15 +99,48 @@ Guia completo de TypeScript para Berry (Backend + Frontend):
 - 12 exemplos práticos completos
 - Troubleshooting
 
-### React & Legend State Guide
+### Legend App State Guide
 
-**Status:** 🚧 Em breve
+**Arquivo:** [technology-guides/legend-app-state.md](./technology-guides/legend-app-state.md) ✅
 
-Planejado:
-- Component patterns
-- State management com Legend State
-- Hooks customizados
-- Performance optimization
+Guia completo de boas práticas Legend App State para Berry (Frontend):
+- Objetivo: Documentar e padronizar a forma como a Berry usa Legend App State
+- **⚠️ REGRA FUNDAMENTAL: useState é PROIBIDO** - Todos os componentes devem usar `useObservable`
+- Configuração e setup (estado global `state$`, estado local `useObservable`)
+- **Padrões de Uso:**
+  - Componentes com `observer()` (obrigatório)
+  - Naming conventions (sufixo `$` obrigatório)
+  - Estado local vs estado global
+- **Operações com Observables:**
+  - Leitura: `.get()` (reativo), `.peek()` (não-reativo), `use()` (hook)
+  - Escrita: `.set()`, `.push()`, `.delete()`
+  - Batch updates: `beginBatch()` / `endBatch()`
+  - Merge: `mergeIntoObservable()` para updates parciais
+- **Sincronização e Persistência:**
+  - `syncToLocalStorage()` helper customizado
+  - Integração com TanStack Query (server state vs UI state)
+  - WebSocket real-time updates (exemplo WhatsApp)
+- **Performance e Otimização:**
+  - Fine-grained reactivity (re-render apenas o que mudou)
+  - Evitar múltiplos `.get()` em loops
+  - Computed values com `useComputed()`
+  - Memoização quando necessário
+- **Padrões Avançados:**
+  - Estados modulares por feature (`whatsappState$`, `taskState$`, `crmPageState$`)
+  - Helpers customizados (`maiaMergeIntoObservable`)
+  - Integração TanStack Query + Legend State
+  - WebSocket patterns completos
+- **Best Practices Checklist:** Queries, estado, performance, naming, componentes
+- **Anti-Patterns:** O que evitar (useState, sem sufixo `$`, sem `observer()`, `.get()` em loops)
+- **4 Exemplos Práticos Completos:**
+  - Componente simples com estado local (formulário)
+  - Componente com estado global
+  - Estado modular completo (WhatsApp state com WebSocket)
+  - Integração TanStack Query + Legend State
+- Troubleshooting (componente não re-renderiza, estado não atualiza, performance issues)
+- Referências (documentação oficial, arquivos críticos do codebase)
+
+**Total:** ~1.600 palavras (~6 páginas)
 
 ### Testing Guide (Vitest)
 
@@ -369,6 +402,6 @@ Para dúvidas sobre a documentação:
 ---
 
 **Última atualização:** 01 de Dezembro de 2025
-**Versão:** 1.5.0
-**Documentos completos:** 10 ✅
-**Documentos planejados:** 7+ 🚧
+**Versão:** 1.6.0
+**Documentos completos:** 11 ✅
+**Documentos planejados:** 6+ 🚧
