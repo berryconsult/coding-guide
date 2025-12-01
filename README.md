@@ -142,16 +142,6 @@ Guia completo de boas práticas Legend App State para Berry (Frontend):
 
 **Total:** ~1.600 palavras (~6 páginas)
 
-### Testing Guide (Vitest)
-
-**Status:** 🚧 Em breve
-
-Planejado:
-- Unit tests detalhados
-- Integration tests
-- Mocking patterns avançados
-- Coverage requirements
-
 ### ArangoDB Guide
 
 **Arquivo:** [technology-guides/arangodb.md](./technology-guides/arangodb.md) ✅
@@ -333,13 +323,21 @@ Guia prático com exemplos de código completos:
 
 ### Arquitetura do Sistema
 
-**Status:** 🚧 Em breve
+**Arquivo:** [architecture/system-architecture.md](./architecture/system-architecture.md) ✅
 
-Planejado:
-- Visão geral da plataforma BerryMax
-- Arquitetura multi-tenant
-- Event-driven architecture
-- Integrações (Stripe, Google, WhatsApp)
+Documentação completa da arquitetura do sistema BerryMax:
+- Visão geral da plataforma e componentes principais
+- Arquitetura multi-tenant (workspace isolation, context injection)
+- Event-driven architecture (BullMQ, listeners, job processing)
+- Integrações externas (Stripe Connect, Google Workspace, WhatsApp Business API)
+- Arquitetura de módulos (Domain-Driven Design, Service Pattern, GraphQL)
+- Infraestrutura e deploy (Docker Swarm, Nginx, CI/CD)
+- Segurança (autenticação, autorização, data protection)
+- Performance e escalabilidade (caching, database optimization)
+- Best practices e anti-patterns
+- Troubleshooting de problemas comuns
+
+**Total:** ~7.000 palavras (~30 páginas)
 
 ---
 
@@ -402,6 +400,6 @@ Para dúvidas sobre a documentação:
 ---
 
 **Última atualização:** 01 de Dezembro de 2025
-**Versão:** 1.6.0
-**Documentos completos:** 11 ✅
-**Documentos planejados:** 6+ 🚧
+**Versão:** 1.7.0
+**Documentos completos:** 12 ✅
+**Documentos planejados:** 5+ 🚧
