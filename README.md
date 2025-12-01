@@ -41,6 +41,23 @@ Processo completo de code review integrado com QA:
 - Integração com ambientes temporários para QA
 - Boas práticas e anti-patterns
 
+### Pull Requests
+
+**Arquivo:** [processes/pull-requests.md](./processes/pull-requests.md) ✅
+
+Guia completo de Pull Requests na Berry (~7.000 palavras):
+- Anatomia de um PR (título, descrição WWW, template obrigatório)
+- Checklist pré-PR (self-review, testes, formatação)
+- Processo completo: Criação → Code Review → QA → Merge
+- Durante code review (responder feedback, escalar Tech Lead)
+- Ambiente temporário e validação QA
+- Merge obrigatório: Squash and Merge
+- Cenários especiais: Hotfixes, PRs grandes, PRs dependentes, conflitos
+- Checklist completo (pré-PR, durante review, antes de merge)
+- Boas práticas e anti-patterns
+- 3 exemplos práticos completos com threads de review
+- FAQ, ferramentas (GitHub CLI, Draft PRs), glossário
+
 ### Task Management
 
 **Arquivo:** [processes/task-management.md](./processes/task-management.md)
@@ -191,13 +208,49 @@ Guia completo de testes manuais para QA da Berry:
 
 ### Testes End-to-End (E2E)
 
-**Status:** 🚧 Em breve
+**Arquivos:**
+- [quality/e2e-setup.md](./quality/e2e-setup.md) ✅
+- [quality/e2e-guide.md](./quality/e2e-guide.md) ✅
 
-Planejado:
-- 10 fluxos críticos identificados (Lead→Project, Auction, Payment, etc.)
-- Playwright/Cypress setup
-- Estratégia de E2E
-- Integrações que precisam de testes
+**E2E Setup (~3.500 palavras):**
+Guia técnico de configuração da infraestrutura E2E:
+- Playwright 1.40.0 (já instalado em packages/api)
+- Estrutura de diretórios (`packages/e2e/`)
+- Configuração completa (playwright.config.ts, tsconfig.json, package.json)
+- Global setup e verificação de serviços
+- Fixtures customizados (auth, API GraphQL, webhooks)
+- Ambiente de testes (.env.example, dados de teste)
+- Test data builders e helpers
+- Troubleshooting e debugging
+- Integração com CI/CD (planejado)
+
+**E2E Practical Guide (~4.500 palavras):**
+Guia prático com exemplos de código completos:
+
+**3 Fluxos Críticos Documentados:**
+1. **Lead → Projeto** (15 passos, 6 listeners):
+   - CrmLeadAnalysisUseCase → CrmDealIsMQL → CrmDealIsSQL → CrmDealClose → GenerateContractSigningFromContract → CreateProjectFromDealUseCase
+2. **Leilão de Deal Alto Valor** (12 passos):
+   - AuctionEndedWithWinnerUseCase → ChargeWorkspaceForCAC
+3. **WhatsApp → CRM** (9 passos):
+   - WhatsappIncomingUseCase → MaiaRespondUseCase
+
+**Conteúdo:**
+- Anatomia de um teste E2E (estrutura AAA)
+- Page Object Model completo (CRM, Auction, Contract, Project, Chat)
+- Exemplos de testes completos (60+ linhas cada)
+- Padrões de assertions customizados
+- Mocking de webhooks (Stripe, ZapSign, WhatsApp)
+- Teste de listeners e eventos
+- Fixtures de autenticação (loginAsAdmin, loginAsBDR)
+- GraphQL client para setup de dados
+- Best practices e anti-patterns
+- Estratégia de integração vs mocking
+
+**Estrutura criada:**
+- `packages/e2e/` (package.json, tsconfig.json, playwright.config.ts)
+- `fixtures/` (test-base.ts, auth.ts, api.ts, webhooks.ts)
+- Pronto para implementação dos testes
 
 ---
 
@@ -273,7 +326,7 @@ Para dúvidas sobre a documentação:
 
 ---
 
-**Última atualização:** 27 de Novembro de 2025
-**Versão:** 1.3.0
-**Documentos completos:** 6 ✅
+**Última atualização:** 01 de Dezembro de 2025
+**Versão:** 1.4.0
+**Documentos completos:** 9 ✅
 **Documentos planejados:** 8+ 🚧
