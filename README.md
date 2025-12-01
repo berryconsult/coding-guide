@@ -45,7 +45,7 @@ Processo completo de code review integrado com QA:
 
 **Arquivo:** [processes/pull-requests.md](./processes/pull-requests.md) ✅
 
-Guia completo de Pull Requests na Berry (~7.000 palavras):
+Guia completo de Pull Requests na Berry:
 - Anatomia de um PR (título, descrição WWW, template obrigatório)
 - Checklist pré-PR (self-review, testes, formatação)
 - Processo completo: Criação → Code Review → QA → Merge
