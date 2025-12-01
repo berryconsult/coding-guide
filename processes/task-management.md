@@ -233,7 +233,7 @@ graph TD
 
 - **Limite de WIP**: Máximo **1 tarefa In Progress por desenvolvedor**
 - Criar branch seguindo padrão: `[ID-DA-TAREFA]` (ex: `MAIA-45`)
-- Fazer commits frequentes seguindo padrão do `git-workflow.md`
+- Fazer commits frequentes seguindo padrão do `#git-workflow.md`
 - Atualizar progresso nos comentários se tarefa levar > 1 dia
 - Se bloqueado, comunicar imediatamente no Slack
 
