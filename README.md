@@ -119,10 +119,52 @@ Planejado:
 - Mocking patterns avançados
 - Coverage requirements
 
+### ArangoDB Guide
+
+**Arquivo:** [technology-guides/arangodb.md](./technology-guides/arangodb.md) ✅
+
+Guia completo de boas práticas ArangoDB para Berry (Backend):
+- Objetivo: Documentar e padronizar a forma como a Berry usa ArangoDB
+- Configuração e conexão (singleton, connection pool, retry logic)
+- Service Architecture Pattern (Base Service<T>, CRUD methods, auto-timestamps)
+- **Queries AQL:**
+  - Template literals com `aql` tag (type-safety)
+  - Filtros dinâmicos com `join()`
+  - Queries com arrays, agregações, cálculos
+  - Full-text search com ArangoSearch
+  - Graph queries com edge collections
+- **Naming Conventions:** Collections (`lowercase_snake_case`), índices (`idx_{collection}_{fields}`), campos (`camelCase`), IDs (`{collection}_{nanoId()}`)
+- **Data Model Padrão:** Interface `ArangoObject`, workspace isolation, soft delete, timestamps ISO 8601
+- **Indexing:**
+  - Tipos (persistent, unique, sparse, array)
+  - Ordem de campos CRÍTICA (igualdades → ranges → sort)
+  - Covering indexes com `storedValues`
+  - Cache enabled para queries frequentes
+- **ArangoSearch Views & Analyzers:**
+  - Analyzers customizados para português brasileiro (`maia::pt_br_text_search`)
+  - Views de full-text search
+  - `BM25()` e `BOOST()` para relevância
+- **Graph Operations:**
+  - Edge collections (`{entity1}_{entity2}_edge`)
+  - Diff pattern para sincronização
+  - Transactions para atomicidade
+- **Performance:** DataLoader (evitar N+1), Redis cache, query optimization
+- **Error Handling:** Retry logic (lock errors, connection errors, socket errors)
+- **Best Practices Checklist:** Queries, indexing, services, performance, error handling
+- **Anti-Patterns:** O que evitar (string concatenation, full scans, delete físico)
+- **4 Exemplos Práticos Completos:**
+  - Service completo (DealService)
+  - Full-text search (analyzer + view + query)
+  - Graph operations (edge collection + transaction + traversal)
+  - Agregação complexa (múltiplos LETs, subqueries)
+- Troubleshooting (query lenta, lock errors, índice não usado)
+- Referências (documentação oficial, arquivos críticos)
+
+**Total:** ~18.000 palavras (~70 páginas)
+
 ### Outros Guias Planejados
 
 - GraphQL & Apollo Guide
-- ArangoDB Guide
 - TanStack Guide (Router + Query)
 - Tailwind & Design System
 - Node.js & Fastify
@@ -327,6 +369,6 @@ Para dúvidas sobre a documentação:
 ---
 
 **Última atualização:** 01 de Dezembro de 2025
-**Versão:** 1.4.0
-**Documentos completos:** 9 ✅
-**Documentos planejados:** 8+ 🚧
+**Versão:** 1.5.0
+**Documentos completos:** 10 ✅
+**Documentos planejados:** 7+ 🚧
