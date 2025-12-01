@@ -1,151 +1,279 @@
-# Documentação Técnica da Berry
+# Documentação Berry - Repositório Central
 
-Bem-vindo ao repositório de documentação técnica da Berry! Este é o hub central para todos os processos, guias e padrões de desenvolvimento da empresa.
-
-## Objetivo
-
-Este repositório centraliza toda a documentação técnica e de processos da Berry, garantindo que todos os membros do time tenham acesso padronizado e atualizado às práticas e procedimentos da empresa.
-
-## Índice de Documentos
-
-### Processos de Desenvolvimento
-
-- **[Git Workflow](./processes/git-workflow.md)** ✅
-  - Estratégia de branches (main, development, feature branches)
-  - Padrões de commits e mensagens
-  - Processo de Pull Requests e Code Review
-  - Fluxo completo de desenvolvimento
-  - Troubleshooting e boas práticas
-
-- **[Code Review](./processes/code-review.md)** ✅
-  - Processo completo de code review
-  - Integração com QA e ambientes temporários
-  - Responsabilidades de autores, revisores e QA
-  - Boas práticas e anti-patterns
-  - Exemplos práticos completos
-
-- **[Task Management](./processes/task-management.md)** ✅
-  - Sistema de Story Points (escala Fibonacci)
-  - Ciclo de vida completo das tarefas
-  - Papéis e responsabilidades (RACI)
-  - Gestão de Sprints (Light Scrum)
-  - Regras críticas e prioridades
-  - Exemplos práticos completos
-
-### Arquitetura e Tecnologia
-
-- **Arquitetura do Sistema** 🚧 (Em breve)
-  - Visão geral da plataforma BerryMax
-  - Arquitetura multi-tenant
-  - Event-driven architecture
-  - Integrações
-
-### Qualidade e Testes
-
-- **QA Guidelines** 🚧 (Em breve)
-  - Processo de testes manuais
-  - Testes automatizados (E2E)
-  - Critérios de aceitação
-  - Registro de bugs
-
-### Deploy e CI/CD
-
-- **Deploy Process** 🚧 (Em breve)
-  - Ambientes (dev, staging, production)
-  - Processo de deploy
-  - Rollback e contingência
-  - Monitoramento
-
-### Onboarding
-
-- **Novo Desenvolvedor** 🚧 (Em breve)
-  - Setup do ambiente
-  - Primeiros passos
-  - Recursos essenciais
-  - Contatos importantes
-
-## Links Importantes
-
-- **[CLAUDE.md (Raiz do Projeto)](../CLAUDE.md)**: Guia técnico completo do BerryMax (API + Frontend)
-- **[GitHub - BerryMax](https://github.com/berry/berrymax)**: Repositório principal
-- **[Plane.so - Board](https://plane.so/berry/projects)**: Gestão de tarefas
-
-## Padrões da Berry
-
-### Sistema de IDs de Tarefas
-
-Toda tarefa deve ter um ID único no formato: `[PREFIXO]-[NÚMERO]`
-
-**Prefixos Utilizados**:
-
-| Prefixo | Contexto | Exemplo |
-|---------|----------|---------|
-| `BRY` | Tarefas gerais da Berry | `BRY-123` |
-| `MAIA` | Assistente AI | `MAIA-45` |
-| `DEAL` | Sistema de deals | `DEAL-78` |
-| `PROJ` | Sistema de projetos | `PROJ-90` |
-| `FIX` | Bugs urgentes | `FIX-89` |
-
-### Padrão de Commits
-
-```
-[ID-da-tarefa]: <tipo>: <descrição>
-
-Exemplo:
-[MAIA-45]: feat: adiciona análise de leads com IA
-```
-
-**Tipos aceitos**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-
-### Padrão de Pull Requests
-
-- **Título**: `[ID-da-tarefa]: <tipo>: <descrição>`
-- **Aprovações**: 2 obrigatórias
-- **Merge**: Squash and Merge
-- **Destino**: Sempre `development`
-
-## Stack Tecnológica
-
-### Backend (API)
-- Node.js 24+ com TypeScript
-- Fastify + Apollo GraphQL
-- ArangoDB, Redis, Elasticsearch, Qdrant
-- BullMQ para background jobs
-
-### Frontend (App)
-- React 19.1.0 com TypeScript
-- Vite 6.3.1
-- TanStack Router + Query
-- Legend State
-- Tailwind CSS 4.1.5
-
-## Contribuindo com a Documentação
-
-Encontrou algo desatualizado ou faltando? Siga este processo:
-
-1. Abra uma tarefa no Plane.so com prefixo `BRY`
-2. Crie uma branch: `BRY-XXX`
-3. Faça as alterações na documentação
-4. Crie um PR seguindo os padrões
-5. Solicite revisão do Tech Lead
-
-## Contatos
-
-**Dúvidas sobre**:
-- **Git Workflow**: Tech Lead
-- **Processos**: Tech Lead + Product Owner
-- **Código**: Tech Lead + Time de Dev
-- **QA**: Time de QA
-
-## Controle de Versão
-
-| Versão | Data | Autor | Mudanças |
-|--------|------|-------|----------|
-| 1.0 | 2025-01-19 | Tech Lead | Criação inicial da documentação |
+Bem-vindo ao repositório central de documentação da Berry! Este é o ponto de partida para toda a documentação técnica, processos de desenvolvimento, guias de tecnologia e padrões de qualidade.
 
 ---
 
-**Legenda**:
-- ✅ Documento completo e revisado
-- 🚧 Em desenvolvimento
-- 📅 Planejado para próximas sprints
+## Índice
+
+- [Processos de Desenvolvimento](#processos-de-desenvolvimento)
+- [Guias de Tecnologia](#guias-de-tecnologia)
+- [Qualidade e Testes](#qualidade-e-testes)
+- [Arquitetura e Tecnologia](#arquitetura-e-tecnologia)
+
+---
+
+## Processos de Desenvolvimento
+
+### Git Workflow
+
+**Arquivo:** [processes/git-workflow.md](./processes/git-workflow.md)
+
+Documentação completa do fluxo de trabalho Git na Berry, incluindo:
+- Estratégia de branching (GitFlow adaptado)
+- Convenções de commit messages
+- Criação e gerenciamento de branches
+- Resolução de conflitos
+- Integração com ferramentas (GitHub, Coolify)
+- Fluxo de hotfix para bugs críticos
+- Best practices e troubleshooting
+
+### Code Review
+
+**Arquivo:** [processes/code-review.md](./processes/code-review.md)
+
+Processo completo de code review integrado com QA:
+- Fluxo: 2 approvals → Ambiente temporário → QA validation → Merge automático
+- Papéis e responsabilidades (Author, Reviewer, QA, Tech Lead)
+- Níveis de severidade ([Bloqueador], [Sugestão], [Nitpick], [Pergunta])
+- Checklist de review (código, testes, performance, segurança)
+- Exemplos de threads de review
+- Integração com ambientes temporários para QA
+- Boas práticas e anti-patterns
+
+### Task Management
+
+**Arquivo:** [processes/task-management.md](./processes/task-management.md)
+
+Sistema completo de gerenciamento de tarefas com Light Scrum:
+- Story Points (Fibonacci: 1, 2, 3, 5, 8, 13)
+- **Regra de Ouro:** Tarefas > 5 pontos DEVEM ser divididas
+- Workflow de 9 status (Backlog → Completed)
+- Prioridades do desenvolvedor (Hotfixes > Changes Requested > Code Review > In Progress > To Do)
+- Sistema de IDs (BRY, MAIA, DEAL, PROJ, FIX)
+- Gestão de Sprints (2 semanas, Daily, Retro)
+- RACI matrix para todos os papéis
+- Exemplos práticos e templates
+
+---
+
+## Guias de Tecnologia
+
+### TypeScript Guide
+
+**Arquivo:** [technology-guides/typescript.md](./technology-guides/typescript.md) ✅
+
+Guia completo de TypeScript para Berry (Backend + Frontend):
+- Configuração TypeScript (Node.js 22+, React 19)
+- Tipos fundamentais e avançados
+- **7 regras específicas da Berry:**
+  - Use `undefined` ao invés de `null`
+  - Use `??` (nullish coalescing) ao invés de `||`
+  - Tipos de retorno explícitos sempre
+  - Proibido default exports
+  - Proibido `any` (use `unknown`)
+  - Evite template literals aninhados
+  - Use utility functions (`isNotEmptyValue`, `isEmptyValue`)
+- Padrão `Service<T>` e Generics
+- GraphQL types e resolvers
+- Async/Await e Promises
+- Type Safety em Runtime (Zod)
+- Best Practices e Anti-Patterns
+- 12 exemplos práticos completos
+- Troubleshooting
+
+### React & Legend State Guide
+
+**Status:** 🚧 Em breve
+
+Planejado:
+- Component patterns
+- State management com Legend State
+- Hooks customizados
+- Performance optimization
+
+### Testing Guide (Vitest)
+
+**Status:** 🚧 Em breve
+
+Planejado:
+- Unit tests detalhados
+- Integration tests
+- Mocking patterns avançados
+- Coverage requirements
+
+### Outros Guias Planejados
+
+- GraphQL & Apollo Guide
+- ArangoDB Guide
+- TanStack Guide (Router + Query)
+- Tailwind & Design System
+- Node.js & Fastify
+- ESLint & Prettier
+- Docker & Deploy
+
+---
+
+## Qualidade e Testes
+
+### Testes Automatizados
+
+**Arquivo:** [quality/automated-testing.md](./quality/automated-testing.md) ✅
+
+Documento único cobrindo Backend e Frontend:
+
+**Backend (Vitest 2.1.9, Node.js 22+):**
+- 125 test files, ~50k linhas
+- 90% coverage threshold obrigatório
+- Padrões de mocking centralizados (`infra/test/`)
+- Estrutura AAA (Arrange-Act-Assert)
+- Factories para dados complexos
+- 5 exemplos práticos completos:
+  - Unit test simples (crypto)
+  - Service test com mocks (DealService)
+  - Event listener test (CRM flow)
+  - Integration test (Elasticsearch)
+  - Webhook test (Stripe)
+
+**Frontend (Vitest 2.1.9, React 19):**
+- Status atual: < 0.2% coverage (2 test files)
+- **Fase 1 (Atual):** Testar utilities, services, cálculos
+- Sem React Testing Library ainda
+- 4 exemplos práticos:
+  - Utility function (contract-utils)
+  - Calculator (validação + cálculos)
+  - Service test (AuthService mock)
+  - Custom hook (useKeypress)
+
+**Conteúdo:**
+- Checklist para novos test files
+- Troubleshooting e erros comuns
+- Code review considerations
+- Performance de testes
+- Arquivos modelo para referência
+
+**Meta Frontend:** 20% coverage nos próximos 3 meses (foco em utils, services, data hooks)
+
+### Testes Manuais
+
+**Arquivo:** [quality/manual-testing.md](./quality/manual-testing.md) ✅
+
+Guia completo de testes manuais para QA da Berry:
+
+**10 Módulos de Teste Documentados:**
+- ID 00001: Autenticação & Login (7 test cases)
+- ID 00002: CRM & Leads (15 test cases)
+- ID 00003: Projetos & Tarefas (12 test cases)
+- ID 00004: Contratos (10 test cases)
+- ID 00005: Pagamentos - Stripe (10 test cases)
+- ID 00006: Leilões - Auction (10 test cases)
+- ID 00007: WhatsApp & Chat (10 test cases)
+- ID 00008: Dashboards (8 test cases)
+- ID 00009: Organizações & Contatos (10 test cases)
+- ID 00010: Usuários & Permissões (10 test cases)
+
+**4 Fluxos End-to-End Críticos:**
+- Fluxo E2E 1: Lead → Projeto Completo (15 passos, ~30 min)
+- Fluxo E2E 2: Leilão de Deal de Alto Valor (12 passos, ~25 min)
+- Fluxo E2E 3: WhatsApp Lead → CRM → Atribuição (9 passos, ~20 min)
+- Fluxo E2E 4: Falha de Pagamento → Retry → Sucesso (9 passos, ~15 min)
+
+**Conteúdo Adicional:**
+- Matriz de priorização (P0 - Crítico, P1 - Alto, P2 - Médio, P3 - Baixo)
+- Integração com Code Review e processo de QA
+- 12 casos de erro & edge cases
+- Template de bug report
+- Dados de teste e credenciais (Stripe, WhatsApp, ZapSign)
+- Checklist de aprovação de PR
+- Setup de ambiente de testes (Coolify staging)
+
+**Total:** 102 test cases + 4 fluxos E2E completos
+
+### Testes End-to-End (E2E)
+
+**Status:** 🚧 Em breve
+
+Planejado:
+- 10 fluxos críticos identificados (Lead→Project, Auction, Payment, etc.)
+- Playwright/Cypress setup
+- Estratégia de E2E
+- Integrações que precisam de testes
+
+---
+
+## Arquitetura e Tecnologia
+
+### Arquitetura do Sistema
+
+**Status:** 🚧 Em breve
+
+Planejado:
+- Visão geral da plataforma BerryMax
+- Arquitetura multi-tenant
+- Event-driven architecture
+- Integrações (Stripe, Google, WhatsApp)
+
+---
+
+## Como Usar Esta Documentação
+
+### Para Desenvolvedores Novos
+
+1. **Comece com:** [Git Workflow](./processes/git-workflow.md)
+2. **Depois:** [TypeScript Guide](./technology-guides/typescript.md)
+3. **E então:** [Testes Automatizados](./quality/automated-testing.md)
+4. **Finalmente:** [Code Review](./processes/code-review.md) e [Task Management](./processes/task-management.md)
+
+### Para Desenvolvedores Experientes
+
+Consulte os guias específicos conforme necessário:
+- **Dúvidas de processo:** Veja a seção [Processos de Desenvolvimento](#processos-de-desenvolvimento)
+- **Dúvidas técnicas:** Veja [Guias de Tecnologia](#guias-de-tecnologia)
+- **Dúvidas de testes:** Veja [Qualidade e Testes](#qualidade-e-testes)
+
+### Para Tech Leads
+
+Use esta documentação como referência para:
+- Onboarding de novos desenvolvedores
+- Padronização de processos
+- Code review checklist
+- Planejamento de sprints
+
+---
+
+## Contribuindo para a Documentação
+
+Ao adicionar ou atualizar documentação:
+
+1. **Siga o padrão:**
+   - Tom corporativo e profissional
+   - Altamente detalhado com exemplos práticos
+   - Português do Brasil (descrições e explicações)
+   - Código em inglês (padrão do codebase)
+
+2. **Estrutura:**
+   - Introdução clara do propósito do documento
+   - Seções bem organizadas com índice
+   - Exemplos práticos e código real
+   - Troubleshooting e referências
+
+3. **Atualização:**
+   - Mantenha este README.md atualizado
+   - Marque documentos completos com ✅
+   - Marque planejados com 🚧
+
+---
+
+## Contato e Suporte
+
+Para dúvidas sobre a documentação:
+- **Tech Lead:** Pedro
+- **Repositório:** [BerryGitHub/berrymax](https://github.com/berryconsult/berrymax)
+- **Issue Tracker:** Use GitHub Issues para reportar problemas ou sugerir melhorias
+
+---
+
+**Última atualização:** 27 de Novembro de 2025
+**Versão:** 1.3.0
+**Documentos completos:** 6 ✅
+**Documentos planejados:** 8+ 🚧
