@@ -52,7 +52,7 @@ O ID da tarefa **DEVE aparecer em**:
 
 1. Nome da branch Git: `MAIA-45`
 2. Mensagens de commit: `MAIA-45: feat: adiciona análise de leads com IA`
-3. Título do Pull Request: `[MAIA-45]: feat: adiciona análise de leads com IA`
+3. Título do Pull Request: `MAIA-45: feat: adiciona análise de leads com IA`
 4. Comentários de código (quando relevante): `// TODO: MAIA-45 - Implementar retry logic`
 
 ---
@@ -227,28 +227,18 @@ git push origin PROJ-100
 ```bash
 git commit -m "[MAIA-45]: feat: adiciona validação de email com regex"
 git commit -m "[DEAL-78]: fix: corrige erro ao calcular CAC com desconto"
-git commit -m "[USER-34]: refactor: extrai lógica de autenticação para service"
-git commit -m "[PROJ-90]: test: adiciona testes para cálculo de métricas"
-git commit -m "[BRY-12]: docs: documenta processo de deploy em produção"
 ```
 
 #### ❌ Exemplos Incorretos
 
 ```bash
-# ❌ ERRADO: Sem ID da tarefa
-git commit -m "adiciona validação de email"
+# ❌ Sem ID da tarefa ou tipo
+git commit -m "adiciona validação"
+git commit -m "[MAIA-45]: ajustes"
 
-# ❌ ERRADO: Sem tipo
-git commit -m "[MAIA-45]: adiciona validação"
-
-# ❌ ERRADO: Descrição vaga
-git commit -m "[MAIA-45]: feat: ajustes"
-
-# ❌ ERRADO: Múltiplas mudanças não relacionadas
-git commit -m "[MAIA-45]: feat: adiciona validação e corrige bug e atualiza docs"
-
-# ❌ ERRADO: Verbo no passado
-git commit -m "[MAIA-45]: feat: adicionado validação de email"
+# ❌ Múltiplas mudanças ou verbo no passado
+git commit -m "[MAIA-45]: feat: adiciona validação e corrige bug"
+git commit -m "[MAIA-45]: feat: adicionado validação"
 ```
 
 ### 4.4 Commits Atômicos: Por Que São Importantes
@@ -269,9 +259,8 @@ git commit -m "[MAIA-45]: feat: implementa análise de leads completa"
 
 # ✅ CORRETO: Commits atômicos
 git commit -m "[MAIA-45]: feat: cria interface LeadAnalysis"
-git commit -m "[MAIA-45]: feat: implementa serviço de análise de leads"
-git commit -m "[MAIA-45]: test: adiciona testes para LeadAnalysisService"
-git commit -m "[MAIA-45]: feat: integra análise de leads no controller"
+git commit -m "[MAIA-45]: feat: implementa serviço de análise"
+git commit -m "[MAIA-45]: test: adiciona testes unitários"
 ```
 
 ---
@@ -339,93 +328,22 @@ Todo PR **DEVE** conter a seguinte estrutura:
 [Qualquer informação relevante, decisões técnicas, débitos técnicos, etc]
 ```
 
-#### Exemplo Real de Descrição de PR
+> Para um passo a passo rápido de abertura de PR, template preenchido e exemplos de evidências visuais, consulte `pull-requests.md`.
 
-```markdown
-## O que foi feito (What, Why, What Problem)
-
-Implementa análise automática de leads usando IA do GPT-4o-mini para classificar
-qualidade do lead (score 1-5) baseado em informações da empresa, desafio reportado
-e potencial de receita.
-
-**Por que**: O processo manual de qualificação de leads estava consumindo muito
-tempo do time comercial e gerando inconsistência nas avaliações.
-
-**Problema resolvido**: Leads agora são automaticamente qualificados em menos de
-5 segundos, com critérios padronizados e rastreáveis.
-
-## Passos para Testar
-
-1. Acesse `/deals/new` no ambiente de desenvolvimento
-2. Preencha o formulário de lead com:
-   - Nome da empresa: "Tech Solutions LTDA"
-   - Desafio: "Preciso automatizar processo de vendas"
-   - Faturamento anual: "R$ 500.000"
-3. Clique em "Criar Lead"
-4. Verifique que o lead foi criado com score automático (1-5)
-5. Acesse a aba "Histórico" e confirme que o log de análise está presente
-
-## Critérios de Validação
-
-- [ ] Lead recebe score entre 1 e 5 automaticamente
-- [ ] Análise completa em menos de 10 segundos
-- [ ] Log de análise é gravado no histórico
-- [ ] Erro de API da OpenAI é tratado gracefully
-- [ ] Testes unitários do LeadAnalysisService estão passando
-
-## Screenshots/GIFs
-
-![Análise de Lead](https://imgur.com/abc123.gif)
-
-## Notas Adicionais
-
-- Consumo estimado: ~0.0001 USD por análise (GPT-4o-mini)
-- Cache de 1 hora para análises repetidas
-- Fallback para score 3 em caso de erro da API
-```
 
 ### 5.5 Processo de Aprovação
 
-#### Requisitos para Aprovação
+- **2 aprovações** de desenvolvedores são obrigatórias
+- Todos os comentários devem ser respondidos
+- CI/CD pipeline deve estar verde
 
-- **2 aprovações** de outros desenvolvedores são **obrigatórias**
-- Pelo menos **1 aprovação do Tech Lead** (recomendado)
-- Todos os **comentários respondidos** pelo autor
-- Todos os **testes automatizados passando**
-- **CI/CD pipeline** em verde (quando aplicável)
-
-#### Responsabilidades do Autor do PR
-
-Durante o processo de revisão, o **autor** deve:
-
-- Responder a **todos os comentários** dos revisores
-- Explicar **decisões técnicas** quando questionado
-- Fazer **ajustes solicitados** em novos commits
-- Manter o PR **atualizado** com development (resolver conflitos)
-- **Não fazer squash** dos commits até aprovação final
-
-#### Responsabilidades do Revisor
-
-O **revisor** deve focar em:
-
-- **Simplificar** o código quando possível
-- Garantir que os **padrões** estão sendo seguidos
-- Fazer **perguntas construtivas** (não críticas destrutivas)
-- Testar a funcionalidade **localmente** (quando relevante)
-- Aprovar **rapidamente** se tudo estiver OK
-
-**Objetivo**: Colaborar, não ser um portão. Code review é uma conversa técnica.
+**Detalhes completos**: Ver [code-review.md](./code-review.md)
 
 ### 5.6 Etapa "Changes Requested"
 
-Se um revisor solicita alterações:
+🔴 **PRIORIDADE MÁXIMA**: Resolver feedback imediatamente para não perder contexto do revisor.
 
-🔴 **PRIORIDADE MÁXIMA**: O desenvolvedor deve **parar** o que está fazendo
-🔴 Resolver o feedback **imediatamente**
-🔴 Mover o PR de volta para **Code Review** o mais rápido possível
-
-**Por quê?**: Feedback de code review tem validade curta. Se demorar, o revisor
-perde contexto e precisa reler tudo novamente, atrasando o processo.
+> Prioridades e SLAs de `Changes Requested` estão descritos em `task-management.md` (status e responsabilidades).
 
 ### 5.7 Método de Merge
 
@@ -461,6 +379,8 @@ classificar qualidade do lead baseado em informações da empresa.
 # 4. Delete a branch MAIA-45 no GitHub
 ```
 
+> Política de merge (Squash and Merge) vale para todos os PRs; para critérios de revisão e severidades, veja também `code-review.md`.
+
 ---
 
 ## 6. Fluxo Completo de Trabalho
@@ -484,119 +404,17 @@ graph TD
     J -->|Validação final| K[Deployed]
 ```
 
-### 6.2 Passo a Passo Detalhado
+### 6.2 Passo a Passo Resumido
 
-#### **Estágio 1: To Do**
+1. **To Do → In Progress**: Criar branch a partir de `development` (seção 3.3)
+2. **Desenvolvimento**: Fazer commits atômicos seguindo padrão (seção 4)
+3. **Code Review**: Criar PR com descrição completa (seção 5.4), solicitar 2 revisores
+4. **Changes Requested**: Resolver feedback imediatamente
+5. **Testing (QA)**: QA valida em ambiente temporário
+6. **Approved**: Fazer squash and merge (seção 5.7), deletar branch
+7. **Deploy**: CI/CD faz deploy automático para homologação
 
-**Ação**: Selecionar próxima tarefa (respeitar prioridades do PO)
-
-```bash
-# Verificar que entendeu os critérios de aceitação
-# Esclarecer dúvidas com PO ou Tech Lead ANTES de iniciar
-```
-
-#### **Estágio 2: In Progress**
-
-**Ação**: Criar branch e desenvolver
-
-```bash
-# 1. Atualizar development
-git checkout development
-git pull origin development
-
-# 2. Criar branch
-git checkout -b MAIA-45
-
-# 3. Desenvolver seguindo padrões TypeScript
-# (Ver CLAUDE.md para padrões de código)
-
-# 4. Fazer commits atômicos
-git add src/maia/lead-analysis.service.ts
-git commit -m "[MAIA-45]: feat: cria serviço de análise de leads"
-
-git add src/maia/lead-analysis.service.test.ts
-git commit -m "[MAIA-45]: test: adiciona testes para LeadAnalysisService"
-
-# 5. Push para origin
-git push origin MAIA-45
-```
-
-#### **Estágio 3: Code Review**
-
-**Ação**: Criar Pull Request
-
-```bash
-# 1. No GitHub, criar PR de MAIA-45 para development
-
-# 2. Preencher descrição completa (ver seção 5.4)
-
-# 3. Solicitar revisão de 2 desenvolvedores
-# (GitHub: "Reviewers" sidebar -> selecionar 2 pessoas)
-
-# 4. Aguardar feedback
-```
-
-#### **Estágio 4: Changes Requested**
-
-**Ação**: Resolver feedback imediatamente
-
-```bash
-# 1. Ler comentários dos revisores
-
-# 2. Fazer ajustes no código
-git add .
-git commit -m "[MAIA-45]: refactor: simplifica lógica conforme review"
-
-# 3. Push e notificar revisores
-git push origin MAIA-45
-# Responder comentários no GitHub marcando como "Resolved"
-```
-
-#### **Estágio 5: Testing (QA)**
-
-**Ação**: QA valida funcionalidade
-
-```bash
-# Desenvolvedor deve:
-# - Estar disponível para dúvidas do QA
-# - Corrigir bugs encontrados rapidamente
-# - Manter PR atualizado com development
-```
-
-#### **Estágio 6: Approved**
-
-**Ação**: Fazer merge
-
-```bash
-# 1. Verificar que tem 2 aprovações
-
-# 2. No GitHub, clicar "Squash and Merge"
-
-# 3. Editar mensagem final do commit squashado:
-[MAIA-45]: feat: implementa análise de leads com IA
-
-# 4. Confirmar merge
-
-# 5. Deletar branch MAIA-45
-```
-
-#### **Estágio 7: Ready to Deploy**
-
-**Ação**: Deploy automático para homologação
-
-```bash
-# CI/CD pipeline faz deploy automaticamente
-# QA valida em ambiente de homologação
-```
-
-#### **Estágio 8: Deployed**
-
-**Ação**: Tarefa em produção
-
-```bash
-# Deploy para produção (geralmente manual)
-# QA faz teste de fumaça em produção
-```
+> Regras de divisão de tarefas (>5 pontos), WIP e responsabilidades por status estão em `task-management.md`.
 
 ---
 
@@ -714,28 +532,6 @@ git push origin main --force-with-lease
 
 ### 8.1 ✅ Boas Práticas
 
-#### Commits
-
-✅ **Commit cedo e frequentemente** (commits pequenos)
-✅ **Teste antes de commitar** (rodar testes localmente)
-✅ **Use mensagens descritivas** (não "fix", "ajustes", etc)
-✅ **Um commit = uma mudança lógica** (atomicidade)
-
-#### Pull Requests
-
-✅ **PRs pequenos** (< 400 linhas alteradas)
-✅ **Descrição completa** (ver template seção 5.4)
-✅ **Screenshots obrigatórios** para mudanças visuais
-✅ **Self-review** antes de solicitar revisão
-✅ **Responda todos os comentários** rapidamente
-
-#### Code Review
-
-✅ **Revisar em até 4 horas** após solicitação
-✅ **Fazer perguntas, não críticas** ("Por que escolheu X?" não "X está errado")
-✅ **Sugerir soluções** quando apontar problemas
-✅ **Aprovar rapidamente** se tudo OK (não seja bloqueador)
-
 #### Geral
 
 ✅ **Pull antes de push** (sempre atualizar antes)
@@ -743,23 +539,9 @@ git push origin main --force-with-lease
 ✅ **Deletar branches** após merge
 ✅ **Comunicar problemas** cedo (não esconder)
 
+**Detalhes sobre commits, PRs e code review**: Ver seções 4, 5 e [code-review.md](./code-review.md)
+
 ### 8.2 ❌ Anti-Patterns (O Que Evitar)
-
-#### Commits
-
-❌ **Commits gigantes** (> 1000 linhas)
-❌ **Mensagens vagas** ("fix", "atualiza código", "ajustes")
-❌ **Commitar código quebrado** (testes falhando)
-❌ **Misturar mudanças não relacionadas** (feat + fix + refactor)
-❌ **"WIP" commits** em PR (squash antes de solicitar review)
-
-#### Pull Requests
-
-❌ **PRs gigantes** (> 1000 linhas)
-❌ **Descrição vazia** ou apenas "implementa feature X"
-❌ **Sem testes** para código novo
-❌ **Ignorar feedback** dos revisores
-❌ **Force push** após alguém ter feito review
 
 #### Branches
 
@@ -767,14 +549,9 @@ git push origin main --force-with-lease
 ❌ **Branches sem nome padronizado** (feature/minha-feature)
 ❌ **Desenvolver direto em main ou development**
 ❌ **Esquecer de deletar branches** após merge
+❌ **Force push** após alguém ter feito review
 
-#### Code Review
-
-❌ **Demorar dias** para revisar
-❌ **Aprovar sem ler** o código
-❌ **Ser rude** ou destrutivo nos comentários
-❌ **Pedir mudanças** sem sugerir alternativas
-❌ **Aprovar "LGTM"** sem contexto (explicar O QUE está bom)
+**Detalhes sobre commits, PRs e code review**: Ver seções 4, 5 e [code-review.md](./code-review.md)
 
 ### 8.3 Dicas de Produtividade
 
@@ -910,32 +687,21 @@ git rebase --abort
 ### 9.2 Comandos Git Úteis
 
 ```bash
-# Ver histórico de um arquivo específico
-git log --follow src/maia/lead-analysis.service.ts
+# Histórico e busca
+git log --follow <arquivo>          # Histórico de arquivo específico
+git log --all --grep="texto"       # Buscar em commits
+git show <commit-id>                # Ver mudanças de commit
+git blame <arquivo>                 # Ver quem alterou cada linha
 
-# Ver mudanças de um commit específico
-git show abc1234
+# Diferenças e limpeza
+git diff development..MAIA-45       # Diferença entre branches
+git checkout -- <arquivo>          # Desfazer mudanças em arquivo
+git clean -fd                       # Limpar arquivos não rastreados
 
-# Buscar por texto em commits antigos
-git log --all --grep="análise de leads"
-
-# Ver quem alterou cada linha de um arquivo
-git blame src/maia/lead-analysis.service.ts
-
-# Desfazer mudanças em arquivo específico
-git checkout -- src/maia/lead-analysis.service.ts
-
-# Limpar arquivos não rastreados
-git clean -fd
-
-# Ver diferença entre branches
-git diff development..MAIA-45
-
-# Encontrar commit que introduziu bug (bisect)
+# Debug (bisect)
 git bisect start
-git bisect bad  # Commit atual está com bug
-git bisect good abc0000  # Commit que funcionava
-# Git vai testando commits intermediários
+git bisect bad                      # Commit atual com bug
+git bisect good <commit-id>         # Commit que funcionava
 ```
 
 ### 9.3 Checklist Antes de Criar PR

@@ -95,6 +95,8 @@ Usamos escala Fibonacci modificada: **1, 2, 3, 5, 8, 13**
 3. Cada subtarefa deve ter ≤ 5 pontos
 4. Subtarefas devem ser entregáveis individualmente quando possível
 
+> Para organizar branches de subtarefas e merges intermediários, consulte a hierarquia descrita em `git-workflow.md`.
+
 **Exemplo de divisão**:
 
 ```markdown
@@ -250,7 +252,7 @@ graph TD
 - Código implementado e testado
 - CI/CD pipeline verde
 - Self-review completo
-- Descrição do PR preenchida (ver `git-workflow.md`)
+- Descrição do PR preenchida (ver `git-workflow.md` e template em `pull-requests.md`)
 
 **Quem move**: Desenvolvedor
 
@@ -260,30 +262,9 @@ graph TD
 
 **Prioridade**: **ALTA** - Revisores devem revisar em até **4 horas**
 
-**Regras**:
+**Critérios para avançar**: 2 aprovações → ambiente temporário criado automaticamente
 
-- Autor solicita 2 revisores específicos
-- Revisores seguem processo do `code-review.md`
-- Discussões técnicas devem ser construtivas
-- Se impasse, escalar para Tech Lead
-
-**Critérios para avançar para Testing**:
-
-- **2 aprovações** de desenvolvedores
-- CI/CD pipeline verde
-- Sem conflitos com development
-
-**Quando mover para Changes Requested**:
-
-- Qualquer revisor solicita mudanças (Request Changes)
-- Bugs encontrados durante review
-
-**Quando mover para Testing**:
-
-- 2 aprovações obtidas → ambiente temporário criado automaticamente
-- QA é notificado
-
-**Quem move**: Automático após 2 aprovações
+**Detalhes completos**: Ver [code-review.md](./code-review.md). Template e requisitos de PR estão em `pull-requests.md`; política de merge e rebase em `git-workflow.md`.
 
 #### 3.3.5 Changes Requested
 
@@ -291,28 +272,7 @@ graph TD
 
 **Prioridade**: **MÁXIMA** - Resolver **imediatamente** (meta: 1 hora)
 
-**Regras críticas**:
-
-- Esta tarefa tem **prioridade absoluta** sobre qualquer outra
-- Pausar qualquer trabalho em progresso
-- Focar 100% em resolver feedback
-- Responder todos os comentários
-- Notificar revisores após correções
-
-**Processo**:
-
-1. Ler todos os comentários dos revisores
-2. Fazer correções necessárias
-3. Commitar e pushar
-4. Responder comentários explicando correções
-5. Re-solicitar review
-6. Move automaticamente de volta para Code Review
-
-**Quando mover de volta para Code Review**:
-
-- Todas as correções implementadas
-- Commits pushed
-- Comentários respondidos
+**Regras críticas**: Prioridade absoluta sobre qualquer outra tarefa. Pausar trabalho em progresso e focar 100% em resolver feedback.
 
 **Quem move**: Desenvolvedor (ao finalizar correções)
 
@@ -320,36 +280,11 @@ graph TD
 
 **O que é**: QA testando funcionalidade em ambiente temporário.
 
-**Critérios de entrada**:
+**Critérios de entrada**: 2 aprovações de code review → ambiente temporário criado automaticamente
 
-- 2 aprovações de code review
-- Ambiente temporário criado e disponível
-- Build passou sem erros
-
-**Responsabilidades do QA**:
-
-- Testar todos os critérios de aceitação
-- Testar edge cases
-- Validar responsividade (mobile + desktop)
-- Testar dark mode
-- Reportar bugs claramente com passos para reproduzir
-
-**Responsabilidades do desenvolvedor**:
-
-- Estar disponível para dúvidas (Slack)
-- Não iniciar nova tarefa até QA aprovar
-- Acompanhar progresso dos testes (4x ao dia)
-- Responder dúvidas rapidamente
-
-**Quando mover para Approved**:
-
-- QA validou todos os critérios
-- Nenhum bug encontrado
-
-**Quando mover para Changes Requested**:
-
-- QA encontrou bugs
-- Funcionalidade não atende critérios
+**Responsabilidades**:
+- **QA**: Testar critérios de aceitação, edge cases, reportar bugs claramente
+- **Desenvolvedor**: Estar disponível para dúvidas, não iniciar nova tarefa até aprovação
 
 **Quem move**: QA
 
@@ -397,26 +332,19 @@ graph TD
 ### 4.1 Desenvolvedor (Frontend/Backend)
 
 **Responsabilidades**:
-
 - Estimar tarefas (story points)
 - Implementar funcionalidades seguindo CLAUDE.md
 - Escrever testes (coverage ≥ 90%)
 - Criar PRs completos e bem documentados
-- Revisar código de outros desenvolvedores (4 horas)
-- Resolver Changes Requested imediatamente (1 hora)
+- Revisar código (4 horas) e resolver Changes Requested (1 hora)
 - Estar disponível durante testes do QA
 - Comunicar bloqueios proativamente
 
-**Não faz**:
-
-- Definir prioridades (responsabilidade do PO)
-- Pular code review
-- Iniciar tarefa sem entender requisitos
+**Detalhes sobre code review**: Ver [code-review.md](./code-review.md)
 
 ### 4.2 QA
 
 **Responsabilidades**:
-
 - Validar critérios de aceitação
 - Testar edge cases e fluxos alternativos
 - Reportar bugs claramente (passos, screenshots, severidade)
@@ -424,27 +352,15 @@ graph TD
 - Re-testar após correções
 - Fazer smoke tests em produção
 
-**Não faz**:
-
-- Aprovar sem testar
-- Reportar bugs vagos ("não funciona")
-- Demorar > 24 horas para testar
-
 ### 4.3 Tech Lead
 
 **Responsabilidades**:
-
 - Garantir aderência aos padrões (CLAUDE.md)
 - Revisar PRs críticos ou complexos
 - Resolver impasses técnicos
 - Mentoria de desenvolvedores
 - Coordenar deploys para produção
 - Manter qualidade da arquitetura
-
-**Não faz**:
-
-- Microgerenciar desenvolvimento
-- Ser gargalo (tudo precisa passar por ele)
 
 ### 4.4 Product Owner (PO)
 
@@ -517,87 +433,45 @@ graph TD
 
 ```markdown
 ## Contexto
-
 Por que esta tarefa existe? Qual problema estamos resolvendo?
 
 ## Objetivo
-
 O que queremos alcançar com esta tarefa?
 
-## Proposta de Solução
-
-Como vamos resolver? (opcional, pode ser definido pelo desenvolvedor)
-
 ## Critérios de Aceitação
-
 - [ ] Critério 1: Específico e testável
 - [ ] Critério 2: Específico e testável
-- [ ] Critério 3: Específico e testável
 
-## Informações Técnicas
-
+## Informações Técnicas (opcional)
 - Módulos afetados: deals, maia
 - Dependências: integração com OpenAI
 - Riscos conhecidos: rate limit da API
 
-## Referências
-
+## Referências (opcional)
 - Figma: [link]
-- Documento de requisitos: [link]
 - Tarefa relacionada: #MAIA-40
 ```
 
 ### 5.3 Critérios de Aceitação
 
-Devem ser **SMART**:
-
-- **S**pecific (Específico)
-- **M**easurable (Mensurável)
-- **A**chievable (Alcançável)
-- **R**elevant (Relevante)
-- **T**estable (Testável)
+Devem ser **SMART** (Específico, Mensurável, Alcançável, Relevante, Testável).
 
 **Bons exemplos**:
-
 ✅ "Ao criar lead via formulário, score de 1-5 é calculado automaticamente"
 ✅ "Filtro por status retorna apenas deals com status selecionados"
-✅ "Botão de exportar gera CSV com todas as colunas visíveis"
 
 **Maus exemplos**:
-
 ❌ "Sistema deve ser rápido" (não mensurável)
 ❌ "Interface deve ser bonita" (subjetivo)
-❌ "Funcionalidade deve funcionar bem" (vago)
 
-### 5.4 Anexos e Referências
-
-- **Screenshots**: Wireframes, mockups, bugs visuais
-- **Documentos**: PRDs, especificações técnicas
-- **Links**: Figma, Miro, Google Docs
-- **Tarefas relacionadas**: Parent, blocked by, relates to
-
-### 5.5 Labels e Tags
+### 5.4 Labels e Tags
 
 **Labels obrigatórias**:
-
 - **Tipo**: `feature`, `bug`, `refactor`, `docs`, `test`
 - **Módulo**: `deals`, `projects`, `maia`, `users`, etc
 - **Prioridade**: `high`, `medium`, `low`
 
-**Labels opcionais**:
-
-- `needs-design`: Precisa de design antes de implementar
-- `needs-discussion`: Requer discussão técnica
-- `technical-debt`: Débito técnico
-- `breaking-change`: Mudança que quebra compatibilidade
-
-### 5.6 Assignee e Reviewers
-
-**Assignee**: Desenvolvedor responsável pela implementação
-
-**Reviewers**: Definidos ao criar PR, não na tarefa
-
-**Observadores**: Pessoas que devem ser notificadas de atualizações
+**Labels opcionais**: `needs-design`, `needs-discussion`, `technical-debt`, `breaking-change`
 
 ---
 
@@ -623,39 +497,18 @@ Devem ser **SMART**:
 
 ### 6.3 Posso pegar nova tarefa se tenho uma em Code Review?
 
-**Resposta**: Depende.
+**Resposta**: 
+- **Aguardando aprovação**: Sim, pode pegar nova tarefa
+- **Changes Requested**: Não, resolver primeiro (prioridade máxima)
+- **Aguardando QA**: Sim, mas fique disponível para dúvidas
 
-- **Se aguardando 1ª/2ª aprovação**: Sim, pode pegar nova tarefa
-- **Se tem Changes Requested**: Não, resolver primeiro (prioridade máxima)
-- **Se aguardando QA**: Sim, mas fique disponível para dúvidas
+### 6.4 Posso mudar estimativa depois de começar?
 
-### 6.4 Como priorizar entre Changes Requested e nova tarefa?
+**Resposta**: Sim, mas comunique. Avisar no Slack e na tarefa, explicar o que mudou, propor nova estimativa. PO decide se continua ou replaneja.
 
-**Resposta**: Changes Requested **sempre** tem prioridade máxima.
+### 6.5 O que fazer se não concordo com estimativa do time?
 
-- Pausar tudo
-- Resolver feedback
-- Só depois pegar nova tarefa
-
-### 6.5 Posso mudar estimativa depois de começar?
-
-**Resposta**: Sim, mas comunique.
-
-Se durante desenvolvimento descobrir que tarefa é mais complexa:
-
-1. Avisar no Slack e na tarefa
-2. Explicar o que mudou
-3. Propor nova estimativa
-4. PO decide se continua ou replaneja
-
-### 6.6 O que fazer se não concordo com estimativa do time?
-
-**Resposta**: Discussão até consenso ou Planning Poker.
-
-- Explicar seu raciocínio
-- Ouvir argumentos dos outros
-- Buscar consenso
-- Se impasse, usar média ou decisão do Tech Lead
+**Resposta**: Discussão até consenso. Explicar raciocínio, ouvir argumentos, buscar consenso. Se impasse, usar média ou decisão do Tech Lead.
 
 ### 6.7 Quantas tarefas devo pegar por sprint?
 
