@@ -99,6 +99,25 @@ Guia completo de TypeScript para Berry (Backend + Frontend):
 - 12 exemplos práticos completos
 - Troubleshooting
 
+### ESLint & Prettier Guide
+
+**Arquivo:** [technology-guides/eslint-prettier.md](./technology-guides/eslint-prettier.md) ✅
+
+Guia objetivo de lint/format para Maia API (Node 24) e Maia App (React 19):
+- Configuração flat do ESLint 9 + TypeScript-ESLint
+- Prettier 3 e ignores compartilhados
+- Scripts `lint`/`format`, VS Code e lint-staged opcional
+
+### Frontend Styling Guide
+
+**Arquivo:** [technology-guides/frontend-styling.md](./technology-guides/frontend-styling.md) ✅
+
+Padrão de estilização do Maia App (React 19 + Vite + Tailwind + shadcn/ui):
+- Reuso do design system antes de utilitários
+- Tailwind para layout/spacing/cores; sem inline style
+- Estados (hover/focus/disabled/loading) e responsividade mobile-first
+- Checklist visual para PRs
+
 ### Legend App State Guide
 
 **Arquivo:** [technology-guides/legend-app-state.md](./technology-guides/legend-app-state.md) ✅
@@ -191,7 +210,6 @@ Guia completo de boas práticas ArangoDB para Berry (Backend):
 - TanStack Guide (Router + Query)
 - Tailwind & Design System
 - Node.js & Fastify
-- ESLint & Prettier
 - Docker & Deploy
 
 ---
@@ -399,7 +417,7 @@ Para dúvidas sobre a documentação:
 
 ---
 
-**Última atualização:** 01 de Dezembro de 2025
+**Última atualização:** 10 de Dezembro de 2025
 **Versão:** 1.7.0
-**Documentos completos:** 12 ✅
-**Documentos planejados:** 5+ 🚧
+**Documentos completos:** 14 ✅
+**Documentos planejados:** 4+ 🚧
