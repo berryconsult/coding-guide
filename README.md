@@ -411,13 +411,12 @@ Ao adicionar ou atualizar documentação:
 ## Contato e Suporte
 
 Para dúvidas sobre a documentação:
-- **Tech Lead:** Pedro
+- **Tech Lead:** Pedro Pacheco
 - **Repositório:** [BerryGitHub/berrymax](https://github.com/berryconsult/berrymax)
-- **Issue Tracker:** Use GitHub Issues para reportar problemas ou sugerir melhorias
+- **Issue Tracker:** Use GitHub Issues/Plane para reportar problemas ou sugerir melhorias
 
 ---
 
 **Última atualização:** 10 de Dezembro de 2025
 **Versão:** 1.7.0
 **Documentos completos:** 14 ✅
-**Documentos planejados:** 4+ 🚧
