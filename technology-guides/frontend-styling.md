@@ -1,11 +1,5 @@
 # Guia de Estilização Frontend (Maia App)
 
-**Versão:** 1.0.0  
-**Última atualização:** 10 de Dezembro de 2025  
-**Responsável:** Equipe de Plataforma Berry  
-**Objetivo:** Padronizar estilização no Maia App (React 19 + Vite + Tailwind + shadcn/ui), garantindo consistência visual e manutenção simples.
-
----
 
 ## TL;DR
 - Use **componentes do design system primeiro** (shadcn/ui + wrappers internos).

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding Berry</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .slide { display: none; min-height: 100vh; }
+    .slide.active { display: flex; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-900 text-white font-sans">
+
+  <!-- Slide 1: Capa -->
+  <section class="slide active flex-col items-center justify-center p-8" id="slide-1">
+    <h1 class="text-6xl font-bold mb-4">Bem-vindo à Berry!</h1>
+    <p class="text-2xl text-slate-400">Onboarding de Novos Membros</p>
+    <div class="mt-12 text-slate-500">Pressione → para avançar</div>
+  </section>
+
+  <!-- Slide 2: Agenda -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-2">
+    <h2 class="text-5xl font-bold mb-12">Agenda</h2>
+    <div class="grid grid-cols-2 gap-6 text-xl">
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <span class="text-sky-400 font-bold">1.</span> Empresa e Negócio
+        <span class="text-slate-500 block text-sm mt-1">~15 min • Dorli</span>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <span class="text-sky-400 font-bold">2.</span> Processos
+        <span class="text-slate-500 block text-sm mt-1">~15 min • Tech Lead</span>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <span class="text-sky-400 font-bold">3.</span> Tecnologia
+        <span class="text-slate-500 block text-sm mt-1">~15 min • Tech Lead</span>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <span class="text-sky-400 font-bold">4.</span> Arquitetura
+        <span class="text-slate-500 block text-sm mt-1">~15 min • Tech Lead</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 3: Estrutura do Onboarding -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-3">
+    <h2 class="text-5xl font-bold mb-12">Estrutura do Onboarding</h2>
+    <div class="flex gap-4 text-center">
+      <div class="bg-sky-600 p-6 rounded-xl w-48">
+        <div class="text-3xl mb-2">📋</div>
+        <div class="font-bold">Hoje</div>
+        <div class="text-sm text-sky-200">Reunião 1h</div>
+      </div>
+      <div class="text-4xl self-center">→</div>
+      <div class="bg-slate-700 p-6 rounded-xl w-48">
+        <div class="text-3xl mb-2">📚</div>
+        <div class="font-bold">2 dias</div>
+        <div class="text-sm text-slate-400">Estudo Individual</div>
+      </div>
+      <div class="text-4xl self-center">→</div>
+      <div class="bg-slate-700 p-6 rounded-xl w-48">
+        <div class="text-3xl mb-2">🔧</div>
+        <div class="font-bold">~1 semana</div>
+        <div class="text-sm text-slate-400">Tasks de Adaptação</div>
+      </div>
+      <div class="text-4xl self-center">→</div>
+      <div class="bg-slate-700 p-6 rounded-xl w-48">
+        <div class="text-3xl mb-2">🚀</div>
+        <div class="font-bold">Sprint</div>
+        <div class="text-sm text-slate-400">Inclusão no Time</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 4: Divisor Parte 1 -->
+  <section class="slide flex-col items-center justify-center p-8 bg-sky-600" id="slide-4">
+    <div class="text-sm uppercase tracking-widest mb-4">Parte 1</div>
+    <h2 class="text-6xl font-bold mb-4">Empresa e Negócio</h2>
+    <p class="text-2xl text-sky-200">Apresentador: Dorli</p>
+  </section>
+
+  <!-- Slide 5: Sobre a Berry -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-5">
+    <h2 class="text-5xl font-bold mb-8">Sobre a Berry</h2>
+    <p class="text-2xl text-slate-400 mb-12 text-center max-w-3xl">
+      Consultoria B2B que automatiza o ciclo de vida do cliente
+    </p>
+    <div class="bg-gradient-to-r from-sky-600 to-sky-500 px-12 py-6 rounded-2xl">
+      <span class="text-4xl font-bold">Produto: BerryMax</span>
+    </div>
+  </section>
+
+  <!-- Slide 6: O que é o BerryMax -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-6">
+    <h2 class="text-5xl font-bold mb-12">O que é o BerryMax?</h2>
+    <div class="grid grid-cols-3 gap-6 max-w-5xl">
+      <div class="bg-slate-800 p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">📊</div>
+        <div class="font-bold text-lg">CRM</div>
+        <div class="text-slate-400 text-sm">Leads, deals, pipeline</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">⚡</div>
+        <div class="font-bold text-lg">Automação</div>
+        <div class="text-slate-400 text-sm">Fluxos de qualificação</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">📁</div>
+        <div class="font-bold text-lg">Projetos</div>
+        <div class="text-slate-400 text-sm">Gestão e tarefas</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">💬</div>
+        <div class="font-bold text-lg">WhatsApp</div>
+        <div class="text-slate-400 text-sm">Comunicação integrada</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">🤖</div>
+        <div class="font-bold text-lg">Maia</div>
+        <div class="text-slate-400 text-sm">IA assistente</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">💳</div>
+        <div class="font-bold text-lg">Pagamentos</div>
+        <div class="text-slate-400 text-sm">Stripe Connect</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 7: Modelo de Negócio -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-7">
+    <h2 class="text-5xl font-bold mb-12">Modelo de Negócio</h2>
+    <div class="flex gap-8 max-w-5xl">
+      <div class="bg-slate-800 p-8 rounded-xl flex-1">
+        <div class="text-sky-400 font-bold text-xl mb-2">Multi-tenant</div>
+        <p class="text-slate-400">Cada cliente (workspace) = dados completamente isolados</p>
+      </div>
+      <div class="bg-slate-800 p-8 rounded-xl flex-1">
+        <div class="text-sky-400 font-bold text-xl mb-2">Franchiser/Franchisee</div>
+        <p class="text-slate-400">Suporte a estruturas de franquias</p>
+      </div>
+      <div class="bg-slate-800 p-8 rounded-xl flex-1">
+        <div class="text-sky-400 font-bold text-xl mb-2">Pagamentos</div>
+        <p class="text-slate-400">Stripe Connect para cobrança e repasses</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8: Fluxo Principal -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-8">
+    <h2 class="text-5xl font-bold mb-12">Fluxo Principal</h2>
+    <div class="flex items-center gap-3 text-lg mb-12">
+      <span class="bg-slate-700 px-4 py-2 rounded-lg">Lead</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-slate-700 px-4 py-2 rounded-lg">MQL</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-slate-700 px-4 py-2 rounded-lg">SQL</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-sky-600 px-4 py-2 rounded-lg font-bold">Won</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-slate-700 px-4 py-2 rounded-lg">Contrato</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-slate-700 px-4 py-2 rounded-lg">Pagamento</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-emerald-600 px-4 py-2 rounded-lg font-bold">Projeto</span>
+    </div>
+    <div class="grid grid-cols-4 gap-4 text-sm max-w-4xl">
+      <div class="text-center"><span class="text-sky-400 font-bold">Lead:</span> Formulário/WhatsApp</div>
+      <div class="text-center"><span class="text-sky-400 font-bold">MQL:</span> BDR qualifica</div>
+      <div class="text-center"><span class="text-sky-400 font-bold">SQL:</span> Pronto para venda</div>
+      <div class="text-center"><span class="text-sky-400 font-bold">Won:</span> Deal fechado</div>
+    </div>
+  </section>
+
+  <!-- Slide 9: Divisor Parte 2 -->
+  <section class="slide flex-col items-center justify-center p-8 bg-blue-600" id="slide-9">
+    <div class="text-sm uppercase tracking-widest mb-4">Parte 2</div>
+    <h2 class="text-6xl font-bold mb-4">Processos</h2>
+    <p class="text-2xl text-blue-200">Apresentador: Tech Lead</p>
+  </section>
+
+  <!-- Slide 10: Git Workflow -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-10">
+    <h2 class="text-5xl font-bold mb-12">Git Workflow</h2>
+    <div class="flex gap-8 mb-12">
+      <div class="bg-emerald-600 px-8 py-4 rounded-xl text-center">
+        <div class="font-bold text-xl">main</div>
+        <div class="text-emerald-200 text-sm">Produção (protegida)</div>
+      </div>
+      <div class="bg-blue-600 px-8 py-4 rounded-xl text-center">
+        <div class="font-bold text-xl">development</div>
+        <div class="text-blue-200 text-sm">Integração (protegida)</div>
+      </div>
+    </div>
+    <div class="bg-slate-800 p-6 rounded-xl">
+      <div class="text-slate-400 text-sm mb-2">Nomenclatura de branch:</div>
+      <code class="text-xl text-sky-400">MAIA-45 &nbsp; DEAL-78 &nbsp; AUTH-56</code>
+    </div>
+  </section>
+
+  <!-- Slide 11: Commits -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-11">
+    <h2 class="text-5xl font-bold mb-12">Commits</h2>
+    <div class="bg-slate-800 p-6 rounded-xl mb-8">
+      <code class="text-xl text-sky-400">ID: descrição</code>
+    </div>
+    <div class="bg-slate-800/50 p-6 rounded-xl mb-8 font-mono text-lg">
+      <div class="text-emerald-400">MAIA-45: Add lead analysis</div>
+      <div class="text-yellow-400">DEAL-78: Fix CAC calculation</div>
+      <div class="text-blue-400">BRY-12: Update README</div>
+    </div>
+  </section>
+
+  <!-- Slide 12: Pull Requests -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-12">
+    <h2 class="text-5xl font-bold mb-12">Pull Requests</h2>
+    <div class="grid grid-cols-2 gap-6 max-w-3xl">
+      <div class="bg-slate-800 p-6 rounded-xl flex items-center gap-4">
+        <span class="text-3xl">✅</span>
+        <div>
+          <div class="font-bold">2 aprovações</div>
+          <div class="text-slate-400 text-sm">Pelo menos 1 sênior</div>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl flex items-center gap-4">
+        <span class="text-3xl">✅</span>
+        <div>
+          <div class="font-bold">CI/CD verde</div>
+          <div class="text-slate-400 text-sm">Pipeline passando</div>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl flex items-center gap-4">
+        <span class="text-3xl">✅</span>
+        <div>
+          <div class="font-bold">Comentários resolvidos</div>
+          <div class="text-slate-400 text-sm">Todos respondidos</div>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl flex items-center gap-4">
+        <span class="text-3xl">✅</span>
+        <div>
+          <div class="font-bold">Screenshots</div>
+          <div class="text-slate-400 text-sm">Se mudança visual</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 13: Story Points -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-13">
+    <h2 class="text-5xl font-bold mb-12">Story Points</h2>
+    <div class="flex gap-4 mb-8">
+      <div class="bg-emerald-600 w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold">1</div>
+      <div class="bg-emerald-500 w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold">2</div>
+      <div class="bg-yellow-500 w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold">3</div>
+      <div class="bg-orange-500 w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold">5</div>
+      <div class="bg-red-500 w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold">8</div>
+    </div>
+    <table class="text-lg">
+      <tr class="border-b border-slate-700">
+        <td class="py-3 px-6 text-emerald-400 font-bold">1 pt</td>
+        <td class="py-3 px-6 text-slate-400">< 1 hora</td>
+        <td class="py-3 px-6">Ajustar texto</td>
+      </tr>
+      <tr class="border-b border-slate-700">
+        <td class="py-3 px-6 text-emerald-400 font-bold">2 pts</td>
+        <td class="py-3 px-6 text-slate-400">1-2 horas</td>
+        <td class="py-3 px-6">Componente simples</td>
+      </tr>
+      <tr class="border-b border-slate-700">
+        <td class="py-3 px-6 text-yellow-400 font-bold">3 pts</td>
+        <td class="py-3 px-6 text-slate-400">2-4 horas</td>
+        <td class="py-3 px-6">Filtro em lista</td>
+      </tr>
+      <tr>
+        <td class="py-3 px-6 text-orange-400 font-bold">5 pts</td>
+        <td class="py-3 px-6 text-slate-400">1 dia</td>
+        <td class="py-3 px-6">Feature completa</td>
+      </tr>
+    </table>
+    <div class="mt-8 bg-slate-800 px-6 py-3 rounded-xl text-slate-400">
+      ⚠️ Tarefas > 5 pontos devem ser divididas
+    </div>
+  </section>
+
+  <!-- Slide 14: Fluxo de Status -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-14">
+    <h2 class="text-5xl font-bold mb-12">Fluxo de Status</h2>
+    <div class="flex flex-wrap justify-center gap-2 text-sm mb-8">
+      <span class="bg-slate-700 px-3 py-2 rounded">Backlog</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-slate-700 px-3 py-2 rounded">To Do</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-blue-600 px-3 py-2 rounded">In Progress</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-purple-600 px-3 py-2 rounded">Code Review</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-yellow-600 px-3 py-2 rounded">QA</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-emerald-600 px-3 py-2 rounded">Approved</span>
+      <span class="text-slate-500">→</span>
+      <span class="bg-emerald-700 px-3 py-2 rounded">Done</span>
+    </div>
+    <div class="flex gap-6 text-sm">
+      <div class="bg-slate-800 px-4 py-2 rounded-lg">
+        <span class="text-sky-400">Regra:</span> Máx 1 tarefa In Progress por dev
+      </div>
+      <div class="bg-slate-800 px-4 py-2 rounded-lg">
+        <span class="text-sky-400">Bloqueado?</span> Comunicar imediatamente
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 15: Regra de Ouro -->
+  <section class="slide flex-col items-center justify-center p-8 bg-red-600" id="slide-15">
+    <div class="text-6xl mb-6">🔴</div>
+    <h2 class="text-5xl font-bold mb-6">Regra de Ouro</h2>
+    <p class="text-3xl mb-8">Changes Requested = Prioridade MÁXIMA</p>
+    <div class="bg-red-700 px-8 py-4 rounded-xl text-xl">
+      Resolver em até <span class="font-bold">1 hora</span>
+    </div>
+    <p class="mt-6 text-red-200">Pausar qualquer outra tarefa</p>
+  </section>
+
+  <!-- Slide 16: Divisor Parte 3 -->
+  <section class="slide flex-col items-center justify-center p-8 bg-emerald-600" id="slide-16">
+    <div class="text-sm uppercase tracking-widest mb-4">Parte 3</div>
+    <h2 class="text-6xl font-bold mb-4">Tecnologia</h2>
+    <p class="text-2xl text-emerald-200">Apresentador: Tech Lead</p>
+  </section>
+
+  <!-- Slide 17: Stack -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-17">
+    <h2 class="text-5xl font-bold mb-12">Stack Tecnológico</h2>
+    <div class="grid grid-cols-2 gap-6 max-w-4xl">
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-emerald-400 font-bold mb-2">Backend</div>
+        <div class="text-slate-300">Node.js 24+, TypeScript, Fastify, GraphQL</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-blue-400 font-bold mb-2">Frontend</div>
+        <div class="text-slate-300">React 19, Vite, TanStack Router, Legend State</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-purple-400 font-bold mb-2">Databases</div>
+        <div class="text-slate-300">ArangoDB, Redis, Elasticsearch, Qdrant</div>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-orange-400 font-bold mb-2">Infra</div>
+        <div class="text-slate-300">Docker Swarm, Nginx, BullMQ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 18: TypeScript -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-18">
+    <h2 class="text-5xl font-bold mb-12">TypeScript - Regras</h2>
+    <div class="bg-slate-800 p-8 rounded-xl font-mono text-lg max-w-3xl">
+      <div class="mb-4">
+        <span class="text-emerald-400">// ✅ Use undefined (não null)</span>
+        <div class="text-slate-300">interface User { email?: string }</div>
+      </div>
+      <div class="mb-4">
+        <span class="text-emerald-400">// ✅ Use ?? (não ||)</span>
+        <div class="text-slate-300">const name = user.name <span class="text-sky-400">??</span> 'Anonymous'</div>
+      </div>
+      <div>
+        <span class="text-emerald-400">// ✅ Tipos de retorno explícitos</span>
+        <div class="text-slate-300">function getUser(id: string): <span class="text-blue-400">Promise&lt;User&gt;</span></div>
+      </div>
+    </div>
+    <div class="mt-8 flex gap-4">
+      <span class="bg-red-600/30 text-red-400 px-4 py-2 rounded-lg">❌ any</span>
+      <span class="bg-red-600/30 text-red-400 px-4 py-2 rounded-lg">❌ null</span>
+      <span class="bg-red-600/30 text-red-400 px-4 py-2 rounded-lg">❌ default exports</span>
+    </div>
+  </section>
+
+  <!-- Slide 19: Legend State -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-19">
+    <h2 class="text-5xl font-bold mb-12">Legend State - Frontend</h2>
+    <div class="grid grid-cols-2 gap-8 max-w-4xl">
+      <div class="bg-red-900/30 border border-red-600 p-6 rounded-xl">
+        <div class="text-red-400 font-bold mb-4">❌ PROIBIDO</div>
+        <code class="text-lg text-slate-300">const [name, setName] = useState('')</code>
+      </div>
+      <div class="bg-emerald-900/30 border border-emerald-600 p-6 rounded-xl">
+        <div class="text-emerald-400 font-bold mb-4">✅ CORRETO</div>
+        <code class="text-lg text-slate-300">const state$ = useObservable({ name: '' })</code>
+      </div>
+    </div>
+    <div class="mt-8 flex gap-4 text-sm">
+      <span class="bg-slate-800 px-4 py-2 rounded-lg">Sempre <code class="text-sky-400">observer()</code></span>
+      <span class="bg-slate-800 px-4 py-2 rounded-lg">Sufixo <code class="text-sky-400">$</code> em observables</span>
+      <span class="bg-slate-800 px-4 py-2 rounded-lg"><code class="text-sky-400">.get()</code> render, <code class="text-sky-400">.peek()</code> callbacks</span>
+    </div>
+  </section>
+
+  <!-- Slide 20: ArangoDB -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-20">
+    <h2 class="text-5xl font-bold mb-12">ArangoDB - Backend</h2>
+    <div class="grid grid-cols-2 gap-8 max-w-5xl">
+      <div class="bg-emerald-900/30 border border-emerald-600 p-6 rounded-xl">
+        <div class="text-emerald-400 font-bold mb-4">✅ CORRETO - usar aql tag</div>
+        <pre class="text-sm text-slate-300">const q = aql`
+  FOR doc IN ${this.aql}
+  FILTER doc._key == ${key}
+  RETURN doc
+`</pre>
+      </div>
+      <div class="bg-red-900/30 border border-red-600 p-6 rounded-xl">
+        <div class="text-red-400 font-bold mb-4">❌ NUNCA - SQL injection</div>
+        <pre class="text-sm text-slate-300">const q = `FOR doc IN ${collection}
+  FILTER doc._key == "${key}"`</pre>
+      </div>
+    </div>
+    <div class="mt-8 bg-slate-800 px-6 py-3 rounded-xl">
+      ⚠️ Sempre incluir <code class="text-sky-400">workspace</code> em documentos multi-tenant
+    </div>
+  </section>
+
+  <!-- Slide 21: Testes -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-21">
+    <h2 class="text-5xl font-bold mb-12">Testes - Vitest</h2>
+    <div class="flex gap-8 mb-8">
+      <div class="bg-slate-800 px-6 py-3 rounded-xl">
+        <span class="text-slate-400">Coverage:</span> <span class="text-emerald-400 font-bold">90%</span> (backend)
+      </div>
+      <div class="bg-slate-800 px-6 py-3 rounded-xl">
+        <span class="text-slate-400">Padrão:</span> <span class="text-sky-400 font-bold">AAA</span>
+      </div>
+    </div>
+    <div class="bg-slate-800 p-6 rounded-xl font-mono text-lg">
+      <div class="text-slate-500">it('should calculate CAC', () => {</div>
+      <div class="ml-4 text-blue-400">// Arrange</div>
+      <div class="ml-4 text-slate-300">const bidAmount = 5000</div>
+      <div class="ml-4 text-blue-400 mt-2">// Act</div>
+      <div class="ml-4 text-slate-300">const cac = calculateCAC(bidAmount)</div>
+      <div class="ml-4 text-blue-400 mt-2">// Assert</div>
+      <div class="ml-4 text-slate-300">expect(cac).toBe(6200)</div>
+      <div class="text-slate-500">})</div>
+    </div>
+  </section>
+
+  <!-- Slide 22: Divisor Parte 4 -->
+  <section class="slide flex-col items-center justify-center p-8 bg-purple-600" id="slide-22">
+    <div class="text-sm uppercase tracking-widest mb-4">Parte 4</div>
+    <h2 class="text-6xl font-bold mb-4">Arquitetura</h2>
+    <p class="text-2xl text-purple-200">Apresentador: Tech Lead</p>
+  </section>
+
+  <!-- Slide 23: Arquitetura Alto Nível -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-23">
+    <h2 class="text-5xl font-bold mb-12">Arquitetura de Alto Nível</h2>
+    <div class="bg-slate-800 p-8 rounded-xl font-mono text-center">
+      <div class="text-blue-400 text-xl mb-4">Frontend (React)</div>
+      <div class="text-slate-500 text-2xl mb-4">↓</div>
+      <div class="text-purple-400 text-xl mb-4">GraphQL / REST</div>
+      <div class="text-slate-500 text-2xl mb-4">↓</div>
+      <div class="text-emerald-400 text-xl mb-4">Maia API (Fastify)</div>
+      <div class="text-slate-500 text-2xl mb-4">↓</div>
+      <div class="flex justify-center gap-4">
+        <span class="bg-orange-600 px-4 py-2 rounded">ArangoDB</span>
+        <span class="bg-red-600 px-4 py-2 rounded">Redis</span>
+        <span class="bg-yellow-600 px-4 py-2 rounded">Elastic</span>
+        <span class="bg-cyan-600 px-4 py-2 rounded">Qdrant</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 24: Multi-Tenant -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-24">
+    <h2 class="text-5xl font-bold mb-12">Multi-Tenant</h2>
+    <div class="text-2xl text-slate-400 mb-8">
+      <span class="text-sky-400 font-bold">Workspace</span> = unidade de isolamento
+    </div>
+    <div class="bg-slate-800 p-6 rounded-xl font-mono text-lg mb-8">
+      <div class="text-slate-500">interface Deal extends ArangoObject {</div>
+      <div class="ml-4 text-sky-400">workspace: string <span class="text-emerald-400">// OBRIGATÓRIO</span></div>
+      <div class="ml-4 text-slate-300">name: string</div>
+      <div class="ml-4 text-slate-300">status: string</div>
+      <div class="text-slate-500">}</div>
+    </div>
+    <div class="text-slate-400">Dados completamente isolados por cliente</div>
+  </section>
+
+  <!-- Slide 25: Event-Driven -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-25">
+    <h2 class="text-5xl font-bold mb-12">Event-Driven</h2>
+    <div class="flex flex-col items-center gap-4 text-lg">
+      <div class="bg-slate-700 px-6 py-3 rounded-xl">Database change</div>
+      <div class="text-slate-500 text-2xl">↓</div>
+      <div class="bg-slate-700 px-6 py-3 rounded-xl">Service emite evento</div>
+      <div class="text-slate-500 text-2xl">↓</div>
+      <div class="bg-blue-600 px-6 py-3 rounded-xl">Event enfileirado (BullMQ)</div>
+      <div class="text-slate-500 text-2xl">↓</div>
+      <div class="bg-slate-700 px-6 py-3 rounded-xl">Queue worker processa</div>
+      <div class="text-slate-500 text-2xl">↓</div>
+      <div class="bg-emerald-600 px-6 py-3 rounded-xl">Listeners executam ações</div>
+    </div>
+  </section>
+
+  <!-- Slide 26: Integrações -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-26">
+    <h2 class="text-5xl font-bold mb-12">Integrações</h2>
+    <div class="grid grid-cols-3 gap-8 max-w-5xl">
+      <div class="bg-slate-800 p-8 rounded-xl text-center">
+        <div class="text-4xl mb-4">💳</div>
+        <div class="text-xl font-bold text-purple-400 mb-2">Stripe Connect</div>
+        <div class="text-slate-400 text-sm">Pagamentos multi-workspace</div>
+      </div>
+      <div class="bg-slate-800 p-8 rounded-xl text-center">
+        <div class="text-4xl mb-4">📧</div>
+        <div class="text-xl font-bold text-blue-400 mb-2">Google Workspace</div>
+        <div class="text-slate-400 text-sm">OAuth, Calendar, Drive</div>
+      </div>
+      <div class="bg-slate-800 p-8 rounded-xl text-center">
+        <div class="text-4xl mb-4">💬</div>
+        <div class="text-xl font-bold text-emerald-400 mb-2">WhatsApp Business</div>
+        <div class="text-slate-400 text-sm">Mensagens, AI response</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 27: Estrutura de Módulos -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-27">
+    <h2 class="text-5xl font-bold mb-12">Estrutura de Módulos (DDD)</h2>
+    <div class="bg-slate-800 p-8 rounded-xl font-mono text-lg">
+      <div class="text-slate-500">src/</div>
+      <div class="ml-4 text-sky-400">├── deals/ <span class="text-slate-500"># CRM e Sales</span></div>
+      <div class="ml-4 text-blue-400">├── projects/ <span class="text-slate-500"># Project Management</span></div>
+      <div class="ml-4 text-emerald-400">├── tasks/ <span class="text-slate-500"># Task Management</span></div>
+      <div class="ml-4 text-purple-400">├── users/ <span class="text-slate-500"># User Management</span></div>
+      <div class="ml-4 text-yellow-400">└── whats/ <span class="text-slate-500"># WhatsApp</span></div>
+    </div>
+    <div class="mt-8 text-slate-400">
+      Cada módulo: entities, service, graphql, controllers, cases
+    </div>
+  </section>
+
+  <!-- Slide 28: Best Practices -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-28">
+    <h2 class="text-5xl font-bold mb-12">Best Practices</h2>
+    <div class="grid grid-cols-2 gap-8 max-w-4xl">
+      <div class="bg-emerald-900/30 border border-emerald-600 p-6 rounded-xl">
+        <div class="text-emerald-400 font-bold mb-4">✅ Fazer</div>
+        <ul class="space-y-2 text-slate-300">
+          <li>• Incluir <code class="text-sky-400">workspace</code></li>
+          <li>• <code class="text-sky-400">dontEmit: true</code> em listeners</li>
+          <li>• Validar webhooks</li>
+          <li>• Retry com backoff</li>
+        </ul>
+      </div>
+      <div class="bg-red-900/30 border border-red-600 p-6 rounded-xl">
+        <div class="text-red-400 font-bold mb-4">❌ Evitar</div>
+        <ul class="space-y-2 text-slate-300">
+          <li>• Queries sem workspace</li>
+          <li>• Tarefas longas em listeners</li>
+          <li>• Processar webhooks sync</li>
+          <li>• Loops infinitos de eventos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 29: Próximos Passos -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-29">
+    <h2 class="text-5xl font-bold mb-12">Próximos Passos</h2>
+    <div class="grid grid-cols-3 gap-6 max-w-5xl">
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-sky-400 font-bold text-xl mb-4">📚 Estudo (2 dias)</div>
+        <ul class="text-slate-400 text-sm space-y-1">
+          <li>• git-workflow.md</li>
+          <li>• pull-requests.md</li>
+          <li>• code-review.md</li>
+          <li>• typescript.md</li>
+          <li>• app-state.md</li>
+          <li>• system-architecture.md</li>
+        </ul>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-blue-400 font-bold text-xl mb-4">🔧 Adaptação (~1 sem)</div>
+        <ul class="text-slate-400 text-sm space-y-1">
+          <li>• Tarefas de 1-2 pontos</li>
+          <li>• Mudanças pequenas</li>
+          <li>• Pair programming</li>
+          <li>• Code reviews</li>
+        </ul>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl">
+        <div class="text-emerald-400 font-bold text-xl mb-4">🚀 Sprint</div>
+        <ul class="text-slate-400 text-sm space-y-1">
+          <li>• Participar do planning</li>
+          <li>• Tarefas até 3 pontos</li>
+          <li>• Aumento gradual</li>
+          <li>• Mentoria contínua</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 30: Setup -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-30">
+    <h2 class="text-5xl font-bold mb-12">Setup do Ambiente</h2>
+    <div class="grid grid-cols-2 gap-4 max-w-2xl text-lg">
+      <div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3">
+        <span class="text-emerald-400">✓</span> Acesso ao GitHub
+      </div>
+      <div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3">
+        <span class="text-emerald-400">✓</span> Acesso ao Plane
+      </div>
+      <div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3">
+        <span class="text-emerald-400">✓</span> Docker instalado
+      </div>
+      <div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3">
+        <span class="text-emerald-400">✓</span> Node.js 24+
+      </div>
+      <div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3">
+        <span class="text-emerald-400">✓</span> pnpm instalado
+      </div>
+      <div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3">
+        <span class="text-emerald-400">✓</span> Projeto rodando local
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 31: Final -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-31">
+    <h2 class="text-6xl font-bold mb-6">Bem-vindo ao time!</h2>
+    <p class="text-2xl text-slate-400 mb-12">Qualquer dúvida, fale com o Tech Lead</p>
+    <div class="bg-slate-800 px-8 py-4 rounded-xl">
+      <span class="text-slate-400">Documentação:</span>
+      <code class="text-sky-400 ml-2">/onboarding/roteiro-onboarding.md</code>
+    </div>
+  </section>
+
+  <!-- Slide 32: Perguntas -->
+  <section class="slide flex-col items-center justify-center p-8" id="slide-32">
+    <h2 class="text-7xl font-bold mb-8">Perguntas?</h2>
+    <div class="text-6xl">🙋‍♂️</div>
+  </section>
+
+  <!-- Navegação -->
+  <div class="fixed bottom-6 right-6 flex gap-2">
+    <button onclick="prevSlide()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg text-xl">←</button>
+    <span id="slideCounter" class="bg-slate-800 px-4 py-2 rounded-lg">1 / 32</span>
+    <button onclick="nextSlide()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg text-xl">→</button>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 32;
+
+    function showSlide(n) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.getElementById(`slide-${n}`).classList.add('active');
+      document.getElementById('slideCounter').textContent = `${n} / ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+
+</body>
+</html>

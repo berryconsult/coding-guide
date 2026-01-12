@@ -2,91 +2,65 @@
 
 O objetivo do code review na Berry é garantir **qualidade**, **manutenibilidade** e **segurança** do código, além de **compartilhar conhecimento** entre o time.
 
-> Este guia foca *no ato de revisar código*.  
-> Para fluxo completo de PR, veja `processes/pull-requests.md`.  
-> Para gestão de tarefas, veja `processes/task-management.md`.
-> Para política de merge, rebase e naming de branches/commits, veja `processes/git-workflow.md`.
-
----
-
 ## Papéis no code review
 
 - **Autor**
   - Abre o PR seguindo o guia de PR.
-  - Explica claramente o *porquê* da mudança (contexto, problema e solução).
+  - Explica claramente a implementação técnica.
   - Garante que testes relevantes foram escritos e estão passando.
   - Responde comentários, ajusta o código e marca conversas como resolvidas.
 
 - **Reviewer**
+  - Lê a tarefa para entender o contexto do problema ou proposta.
   - Lê o PR com foco no impacto da mudança, não só em detalhes de sintaxe.
   - Usa os níveis de severidade abaixo para dar feedback claro.
   - Cobra testes, clareza e aderência aos padrões da Berry.
   - Busca reduzir retrabalho: aponta problemas de arquitetura, não só “nits”.
 
 - **Tech Lead**
-  - Atua em PRs sensíveis (arquitetura, segurança, performance crítica).
+  - Atua em todos PRs com foco em arquitetura, segurança, performance crítica e débito técnico.
   - Destrava discussões quando houver divergência entre autor e reviewer.
   - Garante que padrões do time estão sendo seguidos.
 
-- **QA**
-  - Valida a funcionalidade no ambiente temporário.
-  - Verifica cenários de negócio, regressões e fluxos críticos.
-  - Dá o “ok” final para merge quando o processo exigir.
-
----
 
 ## Fluxo de code review
 
-1. **Autor abre o PR**
-   - Seguir `processes/pull-requests.md` (template, descrição, checklist, screenshots, etc.).
-   - Garantir que o PR é pequeno o suficiente para ser revisado com qualidade.
+1. **Autor abre o PR** Seguir [pull-requests.md](./pull-requests.md) (template, descrição, checklist, screenshots, etc.).
 
 2. **Revisão técnica**
-   - Mínimo de **2 approvals** (a combinar por projeto/time).
-   - Comentários usando os níveis de severidade.
+   - Mínimo de **2 aprovações**.
+   - Mesmo que já tenha 2 aprovações, quem acessar deve revisar
+   - Pelo menos uma das revisões deve partir de um sêniors para prosseguir
+   - Os comentários devem ser claros e não repetir o que já foi comentado anteriormente (se quiser reforçar comente com um +1)
+   - Os comentários devem ser adicionados na linha especifica do ponto a ser apontado, ou no topo do arquivo se for algo mais abrangente
+   - Ao solicitar `Changes Requested`, o autor deve justificar o motivo nos comentários de forma resumida
+   - Lembre-se de elogiar boas implementações ao aprovar
 
-3. **Ambiente temporário + QA**
-   - PR aprovado dispara deploy em ambiente temporário (quando existir).
-   - QA valida cenários de uso e registra o resultado.
-
-4. **Merge**
-   - Após approvals + validação QA (quando aplicável), o PR é mergeado seguindo o padrão definido (ex.: *Squash and Merge*).
-   - Se algo crítico aparecer depois, abrir **novo PR** ou seguir fluxo de **hotfix** (documentado em `git-workflow.md`/`pull-requests.md`).
-
----
+3. **Merge**
+   - Após approvals e testes de validação do QA, o PR é mergeado pelo Tech Lead ou um Sênior definido por tal.
+   - Se algo crítico aparecer, abrir **novo PR** ou seguir fluxo de **hotfix** 
 
 
 ## Checklist rápido para o revisor
 
 Ao revisar, passe mentalmente por este checklist:
 
-1. **Entendimento**
-   - A descrição do PR deixa claro problema → solução?
-   - Os nomes de variáveis, funções e arquivos são autoexplicativos?
-
-2. **Correção**
-   - A lógica resolve o problema descrito?
-   - Há casos de borda importantes sem cobertura?
-
-3. **Qualidade / Manutenibilidade**
+   - A descrição da tarefa deixa claro problema e contexto da situação a ser abordada?
+   - A descrição do PR condiz com a solução implementada?
+   - Os nomes de variáveis, funções e arquivos são autoexplicativos e não causam dualidades?
+   - A lógica aplicada resolve o problema descrito?
+   - Essa lógica introduz novos problemas?
+   - O código é legível e fácil de entender?
+   - Há casos de borda sem cobertura?
    - O código é simples o suficiente? Pode ser dividido em funções menores?
    - Há duplicação desnecessária que poderia virar helper/service?
-
-4. **Padrões da Berry**
    - Segue os guias de tecnologia (ex.: TypeScript, Legend, etc.)?
    - Segue padrões de código e arquitetura do projeto?
-
-5. **Testes**
    - Existem testes unitários/de integração relevantes?
    - Os testes estão claros e focados em comportamento, não implementação?
-
-6. **Segurança e performance (quando aplicável)**
    - Inputs são validados?
    - Há risco de leaks, N+1 queries, loops desnecessários, etc.?
 
-> SLA e prioridade de `Changes Requested` estão em `task-management.md`. Template e pré-requisitos de PR estão em `pull-requests.md`.
-
----
 
 ## Boas práticas de comunicação
 
@@ -99,4 +73,12 @@ Ao revisar, passe mentalmente por este checklist:
   - Explique o contexto, reconheça pontos válidos, negocie o que pode ficar para um PR futuro.
 
 
+## Hotfixes
+
+Para bugs críticos em produção que precisam de correção urgente:
+
+- **2 aprovações** são obrigatórias, com prioridade máxima.
+- PR deve ser criado direto de `main` para `main`
+- Após merge em `main`, fazer merge para `development` também
+- Comunicar time imediatamente
 
