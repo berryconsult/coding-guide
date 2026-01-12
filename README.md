@@ -64,9 +64,7 @@ Documento único cobrindo Backend e Frontend.
 
 ### Testes Manuais e End-to-End (E2E) 
 **Arquivos:** 
-- [quality/manual-testing.md](./quality/manual-testing.md) 
-- [quality/e2e-setup.md](./quality/e2e-setup.md) 
-- [quality/e2e-guide.md](./quality/e2e-guide.md) 
+- [processes/qa-guide.md](./processes/qa-guide.md) 
 
 Guia completo de testes manuais para QA da Berry.
 
